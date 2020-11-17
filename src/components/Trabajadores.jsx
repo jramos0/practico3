@@ -54,22 +54,37 @@ const Trabajadores = () => {
 
     return<div>
         <Groupforms {...{addOrEditName,currentId,trabajadores}}/>
-        <div className="col-md-8 p-2">
+        <div className="col-md-12 p-2">
             
             {trabajadores.map(trabajadores => (
                 <div className="card mb-1" key={trabajadores.id}> 
                     <div className="card-body">
-            <div className="d-flex justify-content-between"> 
-                <p>{trabajadores.name}</p> 
+                   <div className="d-flex justify-content-between"> 
+                <h2>{trabajadores.codempleado}</h2> 
                 <div>
                     <button className="btn btn-warning" onClick={() => setCurrentId(trabajadores.id)}>Editar</button>
                 <button className="btn btn-danger" onClick={() => onDeletetrab(trabajadores.id)}>X</button>
                 </div> 
                 
             </div>
+            <hr></hr>
+            <div className="d-flex justify-content-between"> 
+                <div>
+                <p>Nombre: {trabajadores.name}</p>
+                <p>Apellido: {trabajadores.apellido}</p> 
+                <p>Horas Trabajadas: {trabajadores.horas}</p>
+                <p>Salario a Recibir: {trabajadores.salariototal}</p>
+                </div>  
+                <div>
+                <p>Descuento ISSS: {trabajadores.descisss}</p>
+                <p>Descuento AFP: {trabajadores.desafp}</p>
+                <p>Descuento RENTA: {trabajadores.descrenta}</p>
+                <p>Descuento TOTAL: {trabajadores.desctotal}</p>
+                </div> 
                 
-                <p>{trabajadores.apellido}</p>
-                <p>{trabajadores.horas}</p>
+            </div>
+                
+                
                  </div>
                 </div>
             ))}
